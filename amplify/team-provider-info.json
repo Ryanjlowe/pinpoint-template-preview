@@ -1,0 +1,20 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-pinpoint-power-tools-prod-123133-authRole",
+            "UnauthRoleArn": "arn:aws:iam::552304315754:role/amplify-pinpoint-power-tools-prod-123133-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::552304315754:role/amplify-pinpoint-power-tools-prod-123133-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-pinpoint-power-tools-prod-123133-deployment",
+            "UnauthRoleName": "amplify-pinpoint-power-tools-prod-123133-unauthRole",
+            "StackName": "amplify-pinpoint-power-tools-prod-123133",
+            "StackId": "arn:aws:cloudformation:us-east-1:552304315754:stack/amplify-pinpoint-power-tools-prod-123133/ac3de170-203a-11ea-b11c-0aece6d977c1",
+            "AmplifyAppId": "d3j0f51thnsbv2"
+        },
+        "categories": {
+            "auth": {
+                "pinpointpowertools53cdd298": {}
+            }
+        }
+    }
+}

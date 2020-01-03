@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"pinpointpowertools53cdd298": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

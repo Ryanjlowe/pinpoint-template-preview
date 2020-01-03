@@ -124,7 +124,13 @@ export function getEndpoint(endpointId) {
           type: 'GET_ENDPOINT',
           endpoint: response.EndpointResponse
         });
-      });
+      })
+      .catch(() => {
+        dispatch({
+          type: 'GET_ENDPOINT',
+          endpoint: {Id: '__notfound__'}
+        });
+      })
   };
 }
 

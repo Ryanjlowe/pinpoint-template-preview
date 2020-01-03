@@ -9,29 +9,40 @@ class EndpointInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpointId: ''
+      endpointId: '',
+      viewJson: false
     };
   }
 
   endpointIdOnChange(value) {
-    // this.setState({
-    //   endpointId: e.target.value
-    // });
     this.props.selectEndpoint(value);
   }
 
-  // submitEndpointOnClick() {
-  //   this.props.selectEndpoint(this.state.endpointId);
-  // }
+  toggleViewJson() {
+    this.setState({viewJson: !this.state.viewJson});
+  }
 
   render() {
     console.log(this);
 
     return (
       <div>
-        <h3>Enter an Endpoint Id</h3>
-        <TypingInput value={this.props.endpointId} onChange={this.endpointIdOnChange.bind(this)} />
-      </div>
+        <div style={{position: 'relative'}}>
+          <h3>Enter an Endpoint Id</h3>
+          <TypingInput value={this.props.endpointId} onChange={this.endpointIdOnChange.bind(this)} />
+          {this.props.endpoint.Id === '__notfound__' && (
+           <span className="endpoint-not-found">Endpoint Not Found</span>
+         )}
+         {this.props.endpoint.Id !== '__notfound__' && (
+          <button onClick={this.toggleViewJson.bind(this)} className="endpoint-json-button">Toggle Endpoint JSON</button>
+        )}
+        </div>
+        {this.state.viewJson && this.props.endpoint.Id !== '__notfound__' && (
+         <pre className="endpoint-json" dangerouslySetInnerHTML={{ __html: JSON.stringify(this.props.endpoint, null, 2)}}>
+
+         </pre>
+       )}
+     </div>
     );
   }
 }
@@ -39,7 +50,7 @@ class EndpointInput extends React.Component {
 function mapStateToProps(state) {
   return {
     endpointId: state.powerTools.endpointId,
-    templateName: state.powerTools.templateName,
+    endpoint: state.powerTools.endpoint,
   };
 }
 

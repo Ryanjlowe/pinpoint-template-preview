@@ -1,18 +1,15 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
 import { connect } from 'react-redux';
-import Endpoint from './components/Endpoint';
 import Template from './components/Template';
 import TemplateRender from './components/TemplateRender';
 import TemplatePicker from './components/TemplatePicker';
-import logo from './logo.svg';
 import './App.css';
 import awsconfig from './aws-exports';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 
@@ -22,7 +19,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/template-render/:templateName/:endpointId" component={TemplateRender} />
+        <Route path="/template-render">
+          <TemplateRender/>
+        </Route>
         <Route path="/">
           <div className="App">
             <header className="App-header">

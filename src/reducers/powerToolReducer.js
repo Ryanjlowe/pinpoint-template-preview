@@ -11,7 +11,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
 
-  console.log(action);
+  //console.log(action);
   const newState = state;
 
   switch (action.type) {
@@ -27,11 +27,13 @@ export default (state = initialState, action = {}) => {
     case 'SELECTED_TEMPLATE':
       return {...newState, templateName: action.templateName, template: {}};
 
-    case 'GET_TEMPLATE': {
-      const test = Object.assign({}, state, {template: action.template});
-      console.log(test);
-      return test;
-    }
+    case 'GET_TEMPLATE':
+      return {...newState, template: action.template};
+    // case 'GET_TEMPLATE': {
+    //   const test = Object.assign({}, state, {template: action.template});
+    //   console.log(test);
+    //   return test;
+    // }
 
     default:
       return state

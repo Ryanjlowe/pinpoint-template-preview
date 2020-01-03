@@ -19,7 +19,7 @@ class TemplatePicker extends React.Component {
         <h3>Pick a Template</h3>
         <ul className="template-picker">
           {this.props.templates.sort((a, b) => (a.TemplateName > b.TemplateName) ? 1 : -1).map((value, idx) => (
-            <li key={idx}><a href="javascript:void()" onClick={this.templateOnClick.bind(this, value.TemplateName)}>{value.TemplateName}</a></li>
+            <li key={idx}><span onClick={this.templateOnClick.bind(this, value.TemplateName)}>{value.TemplateName}</span></li>
           ))}
         </ul>
       </div>

@@ -48,7 +48,59 @@
 
 .template-picker li {
   text-align: left;
-  cursor: pointer;
   list-style-type: none;
   margin-left: -10px;
+}
+
+.template-picker li span {
+  cursor: pointer;
+  color: #007EB9;
+  text-decoration: none;
+}
+
+.template-picker li span:hover {
+  text-decoration: underline;
+}
+
+.template-page {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.template-page h4 {
+  text-align: left;
+}
+
+.template-page .subject {
+  border: 1px solid #282c34;
+  text-align: left;
+  padding: 5px;
+}
+
+.endpoint-not-found {
+  position: absolute;
+  color: #900;
+  font-size: 80%;
+  left: 50%;
+  width: 124px;
+  text-align: center;
+  margin-left: 76px;
+  margin-top: 1px;
+  border: 1px solid #900;
+}
+
+.endpoint-json-button {
+  position: absolute;
+  font-size: 80%;
+  left: 50%;
+  width: 180px;
+  text-align: center;
+  margin-left: 85px;
+  margin-top: 1px;
+}
+
+pre.endpoint-json {
+    text-align: left;
+    border: 1px solid #282c34;
+    padding: 5px;
 }

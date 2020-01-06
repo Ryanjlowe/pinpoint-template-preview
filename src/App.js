@@ -12,57 +12,58 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { Authenticator, SignUp } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+
 
 Amplify.configure(awsconfig);
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/template-render">
-          <TemplateRender/>
-        </Route>
-        <Route path="/">
-          <div className="App">
-            <header className="App-header">
-              <h1>Pinpoint Template Preview</h1>
-            </header>
-            <div className="row">
-              <div className="template-pick-wrap">
-                <AppChooser />
-                <TemplatePicker />
-              </div>
-              <div className="template">
-                <Template />
-              </div>
-            </div>
-          </div>
-        </Route>
-      </Switch>
-    </Router>
-  );
+class App extends React.Component {
+
+  constructor(props) {
+    super()
+    this.state = {
+      auth: 'signIn'
+    }
+  }
+
+  authStateChange(authState) {
+    this.setState({auth: authState});
+  }
+
+  render() {
+
+    console.log(this.state);
+    return (
+      <Authenticator hide={[SignUp]} onStateChange={this.authStateChange.bind(this)}>
+        {this.state.auth === 'signedIn' &&
+          <Router>
+            <Switch>
+              <Route path="/template-render">
+                <TemplateRender/>
+              </Route>
+              <Route path="/">
+                <div className="App">
+                  <header className="App-header">
+                    <h1>Pinpoint Template Preview</h1>
+                  </header>
+                  <div className="row">
+                    <div className="template-pick-wrap">
+                      <AppChooser />
+                      <TemplatePicker />
+                    </div>
+                    <div className="template">
+                      <Template />
+                    </div>
+                  </div>
+                </div>
+              </Route>
+            </Switch>
+          </Router>
+        }
+      </Authenticator>
+    );
+  }
 }
 
-const signUpConfig = {
-  header: 'Signup Form',
-  hideAllDefaults: true,
-  defaultCountryCode: '1',
-  signUpFields: [
-    {
-      label: 'Email Address',
-      key: 'email',
-      required: true,
-      displayOrder: 1,
-      type: 'string'
-    },{
-      label: 'Password',
-      key: 'password',
-      required: true,
-      displayOrder: 2,
-      type: 'password'
-    }
-  ]
-};
-
-export default connect()(withAuthenticator(App, { signUpConfig, usernameAttributes: 'Email Address' }));
+export default connect()(App);

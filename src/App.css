@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
 }
 
 .App .App-link {
@@ -103,4 +104,9 @@ pre.endpoint-json {
     text-align: left;
     border: 1px solid #282c34;
     padding: 5px;
+}
+
+.app-chooser {
+  border-bottom: 1px solid #282c34;
+  padding-bottom: 20px;
 }

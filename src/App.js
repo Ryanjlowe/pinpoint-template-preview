@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Template from './components/Template';
 import TemplateRender from './components/TemplateRender';
 import TemplatePicker from './components/TemplatePicker';
+import AppChooser from './components/AppChooser';
 import './App.css';
 import awsconfig from './aws-exports';
 import {
@@ -29,6 +30,7 @@ function App() {
             </header>
             <div className="row">
               <div className="template-pick-wrap">
+                <AppChooser />
                 <TemplatePicker />
               </div>
               <div className="template">

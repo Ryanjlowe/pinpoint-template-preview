@@ -51,6 +51,7 @@ function mapStateToProps(state) {
   return {
     endpointId: state.powerTools.endpointId,
     endpoint: state.powerTools.endpoint,
+    appId: state.powerTools.appId
   };
 }
 

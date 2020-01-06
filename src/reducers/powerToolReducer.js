@@ -1,5 +1,7 @@
 
 const initialState = {
+  apps: [],
+  appId: null,
   endpoint: {},
   endpointId: '',
   templates: [],
@@ -15,6 +17,13 @@ export default (state = initialState, action = {}) => {
   const newState = state;
 
   switch (action.type) {
+
+    case 'GET_APPS':
+      return {...newState, apps: action.apps, appId: state.appId ?? action.apps[0].Id};
+
+    case 'SELECTED_APP':
+      return {...newState, appId: action.appId};
+
     case 'SELECTED_ENDPOINT':
       return {...newState, endpointId: action.endpointId, endpoint: {}};
 

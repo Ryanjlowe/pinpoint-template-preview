@@ -16,6 +16,31 @@ const getPinpointClient = function(){
     });
 }
 
+export function getApps() {
+  return function (dispatch) {
+    return getPinpointClient()
+      .then(pinpoint => {
+        return pinpoint.getApps().promise()
+      })
+      .then(response => {
+        console.log(response);
+        dispatch({
+          type: 'GET_APPS',
+          apps: response.ApplicationsResponse.Item
+        });
+      });
+  }
+}
+
+export function selectApp(appId) {
+  return function (dispatch) {
+    dispatch({
+      type: 'SELECTED_APP',
+      appId: appId
+    });
+  }
+}
+
 
 export function listTemplates() {
   return function (dispatch) {
@@ -106,10 +131,8 @@ export function getTemplate(templateName) {
 }
 
 
-export function getEndpoint(endpointId) {
+export function getEndpoint(appId, endpointId) {
   return function(dispatch) {
-
-    const appId = '2ca307ced63e440bbd5e7b56651ccaac';
 
     return getPinpointClient()
       .then(pinpoint => {
@@ -130,7 +153,7 @@ export function getEndpoint(endpointId) {
           type: 'GET_ENDPOINT',
           endpoint: {Id: '__notfound__'}
         });
-      })
+      });
   };
 }
 

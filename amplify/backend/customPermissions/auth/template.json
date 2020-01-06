@@ -25,7 +25,8 @@
                             "Action": [
                                 "mobiletargeting:GetEndpoint",
                                 "mobiletargeting:ListTemplates",
-                                "mobiletargeting:GetEmailTemplate"
+                                "mobiletargeting:GetEmailTemplate",
+                                "mobiletargeting:GetApps"
                             ],
                             "Resource": [
                                 "*"

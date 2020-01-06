@@ -10,14 +10,14 @@ class Template extends React.Component {
 
   componentDidMount() {
     console.log(this.props);
-    this.props.getEndpoint(this.props.endpointId);
+    this.props.getEndpoint(this.props.appId, this.props.endpointId);
     this.props.getTemplate(this.props.templateName);
   }
 
   componentDidUpdate(prevProps) {
     console.log(this.props);
-    if (prevProps.endpointId !== this.props.endpointId) {
-      this.props.getEndpoint(this.props.endpointId);
+    if (prevProps.appId !== this.props.appId || prevProps.endpointId !== this.props.endpointId) {
+      this.props.getEndpoint(this.props.appId,this.props.endpointId);
     }
     if (prevProps.templateName !== this.props.templateName) {
       this.props.getTemplate(this.props.templateName);
@@ -68,6 +68,7 @@ function mapStateToProps(state) {
     endpoint: state.powerTools.endpoint,
     template: state.powerTools.template,
     templateName: state.powerTools.templateName,
+    appId: state.powerTools.appId
   };
 }
 

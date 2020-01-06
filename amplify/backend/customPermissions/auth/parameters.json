@@ -1,0 +1,11 @@
+{
+  "authRoleName": {
+      "Ref": "AuthRoleName"
+  },
+  "analyticspinpointpowertoolsId" : {
+    "Type": "String"
+  },
+  "env": {
+    "Type": "String"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "appName": "pinpoint-power-tools",
+    "roleName": "pinpointLambdaRolee5a0175e",
+    "cloudWatchPolicyName": "cloudWatchPolicye5a0175e",
+    "pinpointPolicyName": "pinpointPolicye5a0175e",
+    "authPolicyName": "pinpoint_amplify_e5a0175e",
+    "unauthPolicyName": "pinpoint_amplify_e5a0175e",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

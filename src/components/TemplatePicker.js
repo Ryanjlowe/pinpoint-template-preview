@@ -8,6 +8,12 @@ class TemplatePicker extends React.Component {
     this.props.listTemplates();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.region !== this.props.region) {
+      this.props.listTemplates();
+    }
+  }
+
   templateOnClick(templateName) {
     this.props.selectTemplate(templateName);
   }
@@ -29,7 +35,8 @@ class TemplatePicker extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    templates: state.powerTools.templates
+    templates: state.powerTools.templates,
+    region: state.powerTools.region
   };
 }
 

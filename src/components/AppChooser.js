@@ -8,6 +8,12 @@ class AppChooser extends React.Component {
     this.props.getApps();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.region !== this.props.region) {
+      this.props.getApps();
+    }
+  }
+
   onChange(event) {
     this.props.selectApp(event.target.value);
   }
@@ -18,7 +24,7 @@ class AppChooser extends React.Component {
       <div className="app-chooser">
         <h3>Pick a Pinpoint App</h3>
         <select onChange={this.onChange.bind(this)} value={this.props.appId}>
-          {this.props.apps.map((app, idx) => (
+          {this.props.apps.sort((a, b) => (a.Name > b.Name) ? 1 : -1).map((app, idx) => (
             <option key={idx} value={app.Id}>{app.Name}</option>
           ))}
         </select>
@@ -30,7 +36,8 @@ class AppChooser extends React.Component {
 function mapStateToProps(state) {
   return {
     apps: state.powerTools.apps,
-    appId: state.powerTools.appId
+    appId: state.powerTools.appId,
+    region: state.powerTools.region
   };
 }
 

@@ -68,7 +68,8 @@ function mapStateToProps(state) {
     endpoint: state.powerTools.endpoint,
     template: state.powerTools.template,
     templateName: state.powerTools.templateName,
-    appId: state.powerTools.appId
+    appId: state.powerTools.appId,
+    region: state.powerTools.region
   };
 }
 

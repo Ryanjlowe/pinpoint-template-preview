@@ -30,7 +30,7 @@ class EndpointInput extends React.Component {
         <div style={{position: 'relative'}}>
           <h3>Enter an Endpoint Id</h3>
           <TypingInput value={this.props.endpointId} onChange={this.endpointIdOnChange.bind(this)} />
-          {this.props.endpoint.Id === '__notfound__' && (
+          {this.props.endpointId !== '' && this.props.endpoint.Id === '__notfound__' && (
            <span className="endpoint-not-found">Endpoint Not Found</span>
          )}
          {this.props.endpoint.Id !== '__notfound__' && (
@@ -51,7 +51,8 @@ function mapStateToProps(state) {
   return {
     endpointId: state.powerTools.endpointId,
     endpoint: state.powerTools.endpoint,
-    appId: state.powerTools.appId
+    appId: state.powerTools.appId,
+    region: state.powerTools.region
   };
 }
 

@@ -27,6 +27,7 @@ function mapStateToProps(state) {
     endpoint: state.powerTools.endpoint,
     template: state.powerTools.template,
     templateName: state.powerTools.templateName,
+    region: state.powerTools.region
   };
 }
 

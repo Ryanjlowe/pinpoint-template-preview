@@ -110,3 +110,15 @@ pre.endpoint-json {
   border-bottom: 1px solid #282c34;
   padding-bottom: 20px;
 }
+
+.signout-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.region-chooser {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}

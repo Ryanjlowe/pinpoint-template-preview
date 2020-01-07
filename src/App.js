@@ -5,6 +5,7 @@ import Template from './components/Template';
 import TemplateRender from './components/TemplateRender';
 import TemplatePicker from './components/TemplatePicker';
 import AppChooser from './components/AppChooser';
+import RegionChooser from './components/RegionChooser';
 import './App.css';
 import awsconfig from './aws-exports';
 import {
@@ -12,8 +13,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Authenticator, SignUp } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
-import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+import { Authenticator, SignUp, Greetings, SignOut } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 
 
 Amplify.configure(awsconfig);
@@ -35,7 +35,7 @@ class App extends React.Component {
 
     console.log(this.state);
     return (
-      <Authenticator hide={[SignUp]} onStateChange={this.authStateChange.bind(this)}>
+      <Authenticator hide={[SignUp, Greetings]} onStateChange={this.authStateChange.bind(this)}>
         {this.state.auth === 'signedIn' &&
           <Router>
             <Switch>
@@ -46,6 +46,8 @@ class App extends React.Component {
                 <div className="App">
                   <header className="App-header">
                     <h1>Pinpoint Template Preview</h1>
+                    <div className="signout-button"><SignOut /></div>
+                    <RegionChooser />
                   </header>
                   <div className="row">
                     <div className="template-pick-wrap">

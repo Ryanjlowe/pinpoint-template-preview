@@ -1,5 +1,6 @@
 
 const initialState = {
+  region: 'us-east-1',
   apps: [],
   appId: null,
   endpoint: {},
@@ -17,6 +18,9 @@ export default (state = initialState, action = {}) => {
   const newState = state;
 
   switch (action.type) {
+
+    case 'SELECTED_REGION':
+      return {...newState, region: action.region};
 
     case 'GET_APPS':
       return {...newState, apps: action.apps, appId: state.appId ?? action.apps[0].Id};

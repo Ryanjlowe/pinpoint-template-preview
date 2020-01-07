@@ -3,9 +3,16 @@ import Auth from '@aws-amplify/auth';
 import Pinpoint from 'aws-sdk/clients/pinpoint';
 import { Signer } from '@aws-amplify/core';
 
-const region = 'us-east-1';
+export function selectRegion(region) {
+  return function (dispatch) {
+    dispatch({
+      type: 'SELECTED_REGION',
+      region: region
+    });
+  }
+}
 
-const getPinpointClient = function(){
+const getPinpointClient = function(region){
   return Auth.currentCredentials()
     .then(creds => {
       const pinpoint = new Pinpoint({
@@ -17,8 +24,8 @@ const getPinpointClient = function(){
 }
 
 export function getApps() {
-  return function (dispatch) {
-    return getPinpointClient()
+  return function (dispatch, getState) {
+    return getPinpointClient(getState().powerTools.region)
       .then(pinpoint => {
         return pinpoint.getApps().promise()
       })
@@ -43,7 +50,7 @@ export function selectApp(appId) {
 
 
 export function listTemplates() {
-  return function (dispatch) {
+  return function (dispatch, getState) {
     return Auth.currentCredentials()
       .then((creds) => {
 
@@ -53,8 +60,10 @@ export function listTemplates() {
           session_token: creds.sessionToken,
         };
 
+        const region = getState().powerTools.region;
+
         const service_info = {
-            region: region,
+            region,
             service: 'mobiletargeting',
         };
 
@@ -96,7 +105,7 @@ export function selectEndpoint(endpointId) {
 }
 
 export function getTemplate(templateName) {
-  return function(dispatch) {
+  return function(dispatch, getState) {
     return Auth.currentCredentials()
       .then((creds) => {
 
@@ -105,6 +114,8 @@ export function getTemplate(templateName) {
           access_key: creds.accessKeyId,
           session_token: creds.sessionToken,
         };
+
+        const region = getState().powerTools.region;
 
         const service_info = {
             region: region,
@@ -132,9 +143,9 @@ export function getTemplate(templateName) {
 
 
 export function getEndpoint(appId, endpointId) {
-  return function(dispatch) {
+  return function(dispatch, getState) {
 
-    return getPinpointClient()
+    return getPinpointClient(getState().powerTools.region)
       .then(pinpoint => {
         return pinpoint.getEndpoint({
           ApplicationId: appId,

@@ -33,7 +33,7 @@ class App extends React.Component {
 
   render() {
 
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <Authenticator hide={[SignUp, Greetings]} onStateChange={this.authStateChange.bind(this)}>
         {this.state.auth === 'signedIn' &&

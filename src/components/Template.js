@@ -9,7 +9,7 @@ import {getEndpoint, getTemplate} from '../actions/index';
 class Template extends React.Component {
 
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
     this.props.getEndpoint(this.props.appId, this.props.endpointId);
     if (this.props.templateName !== '') {
       this.props.getTemplate(this.props.templateName);
@@ -17,7 +17,7 @@ class Template extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props);
+    // console.log(this.props);
     if (prevProps.appId !== this.props.appId || prevProps.endpointId !== this.props.endpointId) {
       this.props.getEndpoint(this.props.appId,this.props.endpointId);
     }
@@ -31,7 +31,7 @@ class Template extends React.Component {
   }
 
   render() {
-    console.log(this);
+    // console.log(this);
 
     if (!this.props.templateName || !this.props.template.Subject) {
       return (<div>

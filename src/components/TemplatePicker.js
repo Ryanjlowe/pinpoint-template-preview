@@ -19,7 +19,7 @@ class TemplatePicker extends React.Component {
   }
 
   render() {
-    console.log(this);
+    // console.log(this);
     return (
       <div>
         <h3>Pick a Template</h3>

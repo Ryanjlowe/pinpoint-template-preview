@@ -42,11 +42,6 @@ export default (state = initialState, action = {}) => {
 
     case 'GET_TEMPLATE':
       return {...newState, template: action.template};
-    // case 'GET_TEMPLATE': {
-    //   const test = Object.assign({}, state, {template: action.template});
-    //   console.log(test);
-    //   return test;
-    // }
 
     default:
       return state

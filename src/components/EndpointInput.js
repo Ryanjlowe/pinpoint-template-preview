@@ -23,7 +23,7 @@ class EndpointInput extends React.Component {
   }
 
   render() {
-    console.log(this);
+    // console.log(this);
 
     return (
       <div>

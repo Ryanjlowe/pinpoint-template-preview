@@ -30,7 +30,7 @@ export function getApps() {
         return pinpoint.getApps().promise()
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: 'GET_APPS',
           apps: response.ApplicationsResponse.Item
@@ -77,7 +77,7 @@ export function listTemplates() {
         return axios({...signedRequest});
       })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         dispatch({
           type: 'LIST_TEMPLATES',
           templates: response.data.Item
@@ -133,7 +133,7 @@ export function getTemplate(templateName) {
         return axios({...signedRequest});
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: 'GET_TEMPLATE',
           template: response.data
@@ -154,7 +154,7 @@ export function getEndpoint(appId, endpointId) {
         }).promise()
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: 'GET_ENDPOINT',
           endpoint: response.EndpointResponse
@@ -168,36 +168,3 @@ export function getEndpoint(appId, endpointId) {
       });
   };
 }
-
-// return Auth.currentCredentials()
-//   .then((creds) => {
-//
-//     const access_info = {
-//       secret_key: creds.secretAccessKey,
-//       access_key: creds.accessKeyId,
-//       session_token: creds.sessionToken,
-//     };
-//
-//     const service_info = {
-//         region: region,
-//         service: 'mobiletargeting',
-//     };
-//
-//
-//     const request = {
-//       method: 'GET',
-//       url: `https://pinpoint.${region}.amazonaws.com/v1/apps/${appId}/endpoints/${endpointId}`
-//     }
-//
-//     const signedRequest = Signer.sign(request, access_info, service_info);
-//     console.log(signedRequest);
-//     return axios({...signedRequest});
-//   })
-//   .then((response) => {
-//     console.log(response.data);
-//
-//     dispatch({
-//       type: 'GET_ENDPOINT',
-//       endpoint: response.data
-//     });
-//   });

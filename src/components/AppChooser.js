@@ -19,7 +19,7 @@ class AppChooser extends React.Component {
   }
 
   render() {
-    console.log(this);
+    // console.log(this);
     return (
       <div className="app-chooser">
         <h3>Pick a Pinpoint App</h3>

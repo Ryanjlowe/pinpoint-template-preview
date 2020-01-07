@@ -12,7 +12,7 @@ class RegionChooser extends React.Component {
   }
 
   render() {
-    console.log(this);
+    // console.log(this);
     return (
       <div className="region-chooser">
         <select onChange={this.onChange.bind(this)} value={this.props.region}>

@@ -7,7 +7,7 @@ import {getEndpoint, getTemplate} from '../actions/index';
 class TemplateRender extends React.Component {
 
   render() {
-    console.log(this);
+    // console.log(this);
 
     if (!this.props.template.HtmlPart || !this.props.endpoint.Id) {
       return (<div>

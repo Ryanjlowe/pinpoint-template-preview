@@ -20,10 +20,10 @@ export default (state = initialState, action = {}) => {
   switch (action.type) {
 
     case 'SELECTED_REGION':
-      return {...newState, region: action.region};
+      return {...initialState, region: action.region};
 
     case 'GET_APPS':
-      return {...newState, apps: action.apps, appId: state.appId ?? action.apps[0].Id};
+      return {...newState, apps: action.apps, appId: state.appId ?? (action.apps.length > 0 ? action.apps[0].Id : null)};
 
     case 'SELECTED_APP':
       return {...newState, appId: action.appId};

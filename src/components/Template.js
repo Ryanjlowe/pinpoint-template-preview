@@ -11,7 +11,9 @@ class Template extends React.Component {
   componentDidMount() {
     console.log(this.props);
     this.props.getEndpoint(this.props.appId, this.props.endpointId);
-    this.props.getTemplate(this.props.templateName);
+    if (this.props.templateName !== '') {
+      this.props.getTemplate(this.props.templateName);
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -19,7 +21,7 @@ class Template extends React.Component {
     if (prevProps.appId !== this.props.appId || prevProps.endpointId !== this.props.endpointId) {
       this.props.getEndpoint(this.props.appId,this.props.endpointId);
     }
-    if (prevProps.templateName !== this.props.templateName) {
+    if (this.props.templateName !== '' && (prevProps.templateName !== this.props.templateName || !this.props.template.Subject)) {
       this.props.getTemplate(this.props.templateName);
     }
   }

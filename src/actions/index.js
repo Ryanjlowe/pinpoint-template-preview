@@ -105,6 +105,7 @@ export function selectEndpoint(endpointId) {
 }
 
 export function getTemplate(templateName) {
+  if (templateName === '') return;
   return function(dispatch, getState) {
     return Auth.currentCredentials()
       .then((creds) => {

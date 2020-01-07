@@ -1,5 +1,8 @@
 # Pinpoint Email Template Preview
+The Pinpoint Email Template Preview is a web based application built with AWS Amplify Framework and React.  It can be installed into your AWS account by following the Setup instructions below and will allow you to preview what your templates will look like with different endpoints.  You can also view the Endpoint payload to view all User and Endpoint attributes.
 
+## Demo
+![Demo](./demo.gif)
 
 ## Prerequisites
 

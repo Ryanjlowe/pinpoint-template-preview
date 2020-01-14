@@ -16,5 +16,23 @@
                 "pinpointpowertools53cdd298": {}
             }
         }
+    },
+    "persprod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-pinpoint-power-tools-persprod-143959-authRole",
+            "UnauthRoleArn": "arn:aws:iam::054550575861:role/amplify-pinpoint-power-tools-persprod-143959-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::054550575861:role/amplify-pinpoint-power-tools-persprod-143959-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-pinpoint-power-tools-persprod-143959-deployment",
+            "UnauthRoleName": "amplify-pinpoint-power-tools-persprod-143959-unauthRole",
+            "StackName": "amplify-pinpoint-power-tools-persprod-143959",
+            "StackId": "arn:aws:cloudformation:us-east-1:054550575861:stack/amplify-pinpoint-power-tools-persprod-143959/41f33120-364d-11ea-8176-0a9564c9a859",
+            "AmplifyAppId": "d1yy4vmywqb5bs"
+        },
+        "categories": {
+            "auth": {
+                "pinpointpowertools53cdd298": {}
+            }
+        }
     }
 }

@@ -6,25 +6,11 @@
 			"dependsOn": []
 		}
 	},
-	"analytics": {
-		"pinpointpowertools": {
-			"service": "Pinpoint",
-			"providerPlugin": "awscloudformation"
-		}
-	},
+	"analytics": {},
 	"customPermissions": {
 		"auth": {
 			"service": "CognitoAndIAM",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "analytics",
-					"resourceName": "pinpointpowertools",
-					"attributes": [
-						"Id"
-					]
-				}
-			]
+			"providerPlugin": "awscloudformation"
 		}
 	},
 	"hosting": {}

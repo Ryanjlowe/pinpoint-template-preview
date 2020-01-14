@@ -7,9 +7,6 @@
         },
         "authRoleName": {
             "Type": "String"
-        },
-        "analyticspinpointpowertoolsId" : {
-            "Type": "String"
         }
     },
     "Resources": {
